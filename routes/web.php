@@ -19,5 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
+Route::group(
+    [
+        'prefix' => '/cabinet',
+        'middleware' => ['auth']
+    ],
+    static function() {
+        Route::get('/', [App\Http\Controllers\Auth\CabinetController::class, 'index'])->name('cabinet');
+        Route::get('/delete/{id}', [App\Http\Controllers\Auth\UserController::class, 'delete'])->name('delete');
+    }
+);

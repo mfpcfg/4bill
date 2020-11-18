@@ -45,7 +45,7 @@
                                             <td>{{$user->birthday}}</td>
                                             <td>{{$user->about}}</td>
                                             <td>
-                                                <a @if($user->status === 1) href="delete/{{$user->id}}" @else disabled @endif class="btn btn-danger delete-card-my-address btn-class-text">Удалить</a>
+                                                <a @if($user->status === 1) href="cabinet/delete/{{$user->id}}" @else disabled @endif class="btn btn-danger delete-card-my-address btn-class-text">Удалить</a>
                                             </td>
                                         </tr>
                                     @endforeach
